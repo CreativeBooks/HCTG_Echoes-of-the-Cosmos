@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpn2wyueov8gn"]
+
+[ext_resource type="Texture2D" uid="uid://ccflqg3yjbqht" path="res://Mercury/Mercury.png" id="1_xsk50"]
+
+[node name="Mercury2" type="Node2D"]
+
+[node name="Mercury" type="Sprite2D" parent="."]
+position = Vector2(518, 349)
+texture = ExtResource("1_xsk50")

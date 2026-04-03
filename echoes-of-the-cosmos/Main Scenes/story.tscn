@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs5r3mqps0532"]
+[gd_scene load_steps=6 format=3 uid="uid://cs5r3mqps0532"]
 
 [ext_resource type="Script" uid="uid://bafm84tt1rskf" path="res://Main Scenes/story.gd" id="1_qokif"]
 [ext_resource type="Texture2D" uid="uid://dm41ms56ckg8o" path="res://Main Scenes/Main Scene Files/pixil-layer-Layer 4.png" id="2_4vnix"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mtx1"]
 bg_color = Color(0.056329295, 0.354225, 0.20002937, 0.44313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qokif"]
+bg_color = Color(0.38039216, 0.63529414, 0.38431373, 1)
 
 [node name="Story" type="Node2D"]
 script = ExtResource("1_qokif")
@@ -53,11 +56,12 @@ offset_top = 463.0
 offset_right = 393.0
 offset_bottom = 534.0
 theme_override_colors/font_color = Color(0.13265222, 0.22499695, 0.7896435, 1)
-theme_override_colors/font_hover_color = Color(0.3882353, 1, 1, 0.7529412)
+theme_override_colors/font_hover_color = Color(0.10980392, 0.17254902, 0.46666667, 0.99215686)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_fonts/font = ExtResource("3_74gwc")
 theme_override_font_sizes/font_size = 56
 theme_override_styles/normal = SubResource("StyleBoxFlat_4mtx1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qokif")
 text = "Ready!"
 
 [connection signal="pressed" from="Ready" to="." method="_on_ready_pressed"]

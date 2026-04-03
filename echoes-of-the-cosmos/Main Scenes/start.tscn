@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnjw1ksrl6hqu"]
+[gd_scene load_steps=8 format=3 uid="uid://dnjw1ksrl6hqu"]
 
 [ext_resource type="Script" uid="uid://di6ck1taymdf4" path="res://Main Scenes/start.gd" id="1_0u4g3"]
 [ext_resource type="Texture2D" uid="uid://dm41ms56ckg8o" path="res://Main Scenes/Main Scene Files/pixil-layer-Layer 4.png" id="5_4l1jr"]
@@ -6,6 +6,15 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0xtj"]
 bg_color = Color(0.056329295, 0.354225, 0.20002937, 0.44313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbxx7"]
+bg_color = Color(0.38039216, 0.63529414, 0.38431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffslf"]
+bg_color = Color(0.38229337, 0.6345698, 0.38573393, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ni0fg"]
+bg_color = Color(0.38039216, 0.63529414, 0.38431373, 1)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_0u4g3")
@@ -31,11 +40,12 @@ offset_top = 377.0
 offset_right = 392.0
 offset_bottom = 448.0
 theme_override_colors/font_color = Color(0.13265222, 0.22499695, 0.7896435, 1)
-theme_override_colors/font_hover_color = Color(0.3882353, 1, 1, 0.7529412)
+theme_override_colors/font_hover_color = Color(0.10980392, 0.17254902, 0.46666667, 0.99215686)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_fonts/font = ExtResource("6_k0p7v")
 theme_override_font_sizes/font_size = 56
 theme_override_styles/normal = SubResource("StyleBoxFlat_e0xtj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nbxx7")
 text = "Options"
 
 [node name="Start" type="Button" parent="."]
@@ -44,11 +54,12 @@ offset_top = 287.0
 offset_right = 393.0
 offset_bottom = 358.0
 theme_override_colors/font_color = Color(0.13265222, 0.22499695, 0.7896435, 1)
-theme_override_colors/font_hover_color = Color(0.3882353, 1, 1, 0.7529412)
+theme_override_colors/font_hover_color = Color(0.109707154, 0.17195639, 0.46731907, 0.99215686)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_fonts/font = ExtResource("6_k0p7v")
 theme_override_font_sizes/font_size = 56
 theme_override_styles/normal = SubResource("StyleBoxFlat_e0xtj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ffslf")
 text = "Start"
 
 [node name="Exit" type="Button" parent="."]
@@ -57,11 +68,12 @@ offset_top = 463.0
 offset_right = 393.0
 offset_bottom = 534.0
 theme_override_colors/font_color = Color(0.13265222, 0.22499695, 0.7896435, 1)
-theme_override_colors/font_hover_color = Color(0.3882353, 1, 1, 0.7529412)
+theme_override_colors/font_hover_color = Color(0.10980392, 0.17254902, 0.46666667, 0.99215686)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_fonts/font = ExtResource("6_k0p7v")
 theme_override_font_sizes/font_size = 56
 theme_override_styles/normal = SubResource("StyleBoxFlat_e0xtj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ni0fg")
 text = "Exit"
 
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
