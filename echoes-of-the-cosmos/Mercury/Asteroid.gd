@@ -4,8 +4,8 @@ var speed: float
 var slant: float
 
 func _ready():
-	speed = randf_range(600.0, 900.0)
-	slant = randf_range(-300,100)
+	speed = randf_range(800.0, 1000.0)
+	slant = randf_range(-500,200)
 
 func _physics_process(delta):
 	position.y += speed * delta

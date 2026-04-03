@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cpfq4v6881lt5"]
 
 [ext_resource type="Script" uid="uid://nkkde6ox8h1" path="res://Mercury/Asteroid.gd" id="1_0kyea"]
-[ext_resource type="Texture2D" uid="uid://ck2lnln8em0cy" path="res://Mercury/pixil-layer-Background.png" id="2_o43t7"]
+[ext_resource type="Texture2D" uid="uid://ck2lnln8em0cy" path="res://Mercury/Mercury_1 Files/pixil-layer-Background.png" id="2_o43t7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bghmx"]
 size = Vector2(17.126982, 67.14134)
