@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccflqg3yjbqht"
-path="res://.godot/imported/Mercury.png-e12689e29c2350a4018a6802d0a75b46.ctex"
+path="res://.godot/imported/Venus.png-c9b3024131bb2435eacba4ad4e4cf271.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mercury/Mercury_1 Files/Mercury.png"
-dest_files=["res://.godot/imported/Mercury.png-e12689e29c2350a4018a6802d0a75b46.ctex"]
+source_file="res://Venus.png"
+dest_files=["res://.godot/imported/Venus.png-c9b3024131bb2435eacba4ad4e4cf271.ctex"]
 
 [params]
 

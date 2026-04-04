@@ -2,7 +2,7 @@ extends Node2D
 
 
 @export var asteroid_scene: PackedScene
-@export var wave_size: int = 6
+@export var wave_size: int = 5
 
 func _on_timer_timeout():
 	var total_width = 3200 
