@@ -1,15 +1,14 @@
-extends Node2D
+extends Area2D
 
 var speed: float
-var slant: float
+var slant: float = -500
 
 func _ready():
 	speed = randf_range(800.0, 1000.0)
-	slant = randf_range(-500,200)
 
 func _physics_process(delta):
 	position.y += speed * delta
-	position.x += slant * delta # This adds the diagonal path
+	position.x += slant * delta 
 
 	
 	if position.y > 1100: 
