@@ -8,10 +8,15 @@ var just_respawned := false
 const FALL_LIMIT_Y = 959
 var respawn_position: Vector2
 var can_fall := true
+var shield_count = 2
+var is_shielded = false
+
+@onready var Shield_Counter = get_node("/root/Mercury1/CanvasLayer/Shield_Counter")
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	find_respawn_point()
+	update_shield_ui()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -24,12 +29,7 @@ func _physics_process(delta: float) -> void:
 		jump_count += 1
 		velocity.y = JUMP_VELOCITY
 
-	# Handle jump.
-	#if Input.is_action_just_pressed("Jump") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
@@ -53,6 +53,29 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("Walk")
 
 	move_and_slide()
+
+func _input(event):
+	if event.is_action_pressed("Shield"):
+		if shield_count > 0 and not is_shielded:
+			activate_shield()
+
+func activate_shield():
+	is_shielded = true
+	shield_count -= 1
+	update_shield_ui()
+	
+	print("Shield Activate")
+	await get_tree().create_timer(2.0).timeout
+	
+	deactivate_shield()
+
+func deactivate_shield():
+	is_shielded = false
+	print("Shield Deactivate")
+
+func update_shield_ui():
+	if Shield_Counter:
+		Shield_Counter.text = "Shield Counter: " + str(shield_count)
 
 
 func find_respawn_point():

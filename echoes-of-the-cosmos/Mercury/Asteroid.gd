@@ -15,5 +15,8 @@ func _physics_process(delta):
 		queue_free()
 
 func _on_body_entered(body):
-	if body.name == "Character":
+	if "is_shielded" in body and body.is_shielded:
+		print("Character Safe")
+		queue_free()
+	elif body.name == "Character":
 		get_tree().reload_current_scene()

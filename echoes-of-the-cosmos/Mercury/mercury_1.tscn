@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=4 uid="uid://ba3vav72wa4pk"]
+[gd_scene load_steps=27 format=4 uid="uid://ba3vav72wa4pk"]
 
 [ext_resource type="Script" uid="uid://dhkvx1tceoy4x" path="res://Mercury/mercury_1.gd" id="1_6hfqi"]
 [ext_resource type="Script" uid="uid://bpa54slw5e0f3" path="res://Main Scenes/character.gd" id="1_iqkcg"]
 [ext_resource type="Texture2D" uid="uid://cqxyum6faq5nh" path="res://Mercury/Mercury_1 Files/Mercury_1.png" id="2_61xid"]
 [ext_resource type="Texture2D" uid="uid://dbyc8khhihbdg" path="res://character.png" id="2_empf4"]
 [ext_resource type="Texture2D" uid="uid://bf00uu5qjkijl" path="res://black.jpeg" id="3_6hfqi"]
+[ext_resource type="FontFile" uid="uid://dftajxtvi4dt0" path="res://Main Scenes/Main Scene Files/Sprintura Demo.otf" id="3_sskkc"]
 [ext_resource type="Texture2D" uid="uid://co42oeft4l5ne" path="res://Mercury/Mercury_1 Files/pixil-layer-Layer 4 (2).png" id="5_rpbj6"]
 [ext_resource type="Texture2D" uid="uid://ba7x8v5kq73xh" path="res://Mercury/Mercury_1 Files/pixil-layer-Background (3).png" id="6_61xid"]
 [ext_resource type="Script" uid="uid://clggble5rflim" path="res://Mercury/asteroid_spawner.gd" id="6_glyg1"]
@@ -95,7 +96,7 @@ func _process(delta: float) -> void:
 size = Vector2(13.33333, 94.666626)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryqtv"]
-size = Vector2(2956, 215)
+size = Vector2(2969, 215)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rpbj6"]
 texture = ExtResource("3_6hfqi")
@@ -1725,6 +1726,17 @@ texture = ExtResource("2_61xid")
 position = Vector2(29, 565)
 gizmo_extents = 130.2
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Shield_Counter" type="Label" parent="CanvasLayer"]
+offset_left = 7.0
+offset_top = 61.0
+offset_right = 632.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("3_sskkc")
+theme_override_font_sizes/font_size = 46
+text = "Shield Counter : 2"
+
 [node name="Character" type="CharacterBody2D" parent="."]
 position = Vector2(-29, 154)
 script = ExtResource("1_iqkcg")
@@ -1744,94 +1756,110 @@ shape = SubResource("RectangleShape2D_61xid")
 [node name="Camera2D" type="Camera2D" parent="Character"]
 position = Vector2(604, 184)
 limit_left = 2
-limit_top = 139
+limit_top = 120
 limit_right = 2962
 limit_bottom = 859
 
 [node name="PixilLayerLayer4(2)" type="Sprite2D" parent="."]
-position = Vector2(188, 793.25)
+visible = false
+position = Vector2(180, 790.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)2" type="Sprite2D" parent="."]
-position = Vector2(379, 795.25)
+visible = false
+position = Vector2(371, 792.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)3" type="Sprite2D" parent="."]
-position = Vector2(571, 798.25)
+visible = false
+position = Vector2(563, 795.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)4" type="Sprite2D" parent="."]
-position = Vector2(763, 799.25)
+visible = false
+position = Vector2(755, 796.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)5" type="Sprite2D" parent="."]
-position = Vector2(953, 803.25)
+visible = false
+position = Vector2(945, 800.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)6" type="Sprite2D" parent="."]
-position = Vector2(1143, 805.25)
+visible = false
+position = Vector2(1135, 802.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)7" type="Sprite2D" parent="."]
-position = Vector2(1333, 805.25)
+visible = false
+position = Vector2(1325, 802.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)8" type="Sprite2D" parent="."]
-position = Vector2(1521, 805.25)
+visible = false
+position = Vector2(1513, 802.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)9" type="Sprite2D" parent="."]
-position = Vector2(1712, 806.25)
+visible = false
+position = Vector2(1704, 803.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)10" type="Sprite2D" parent="."]
-position = Vector2(1903, 807.25)
+visible = false
+position = Vector2(1895, 804.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)11" type="Sprite2D" parent="."]
-position = Vector2(2094, 808.25)
+visible = false
+position = Vector2(2086, 805.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)12" type="Sprite2D" parent="."]
-position = Vector2(2284, 812.25)
+visible = false
+position = Vector2(2276, 809.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)13" type="Sprite2D" parent="."]
-position = Vector2(2475, 816.25)
+visible = false
+position = Vector2(2467, 813.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)14" type="Sprite2D" parent="."]
-position = Vector2(2666, 817.25)
+visible = false
+position = Vector2(2658, 814.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)15" type="Sprite2D" parent="."]
-position = Vector2(2858, 818.25)
+visible = false
+position = Vector2(2850, 815.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="PixilLayerLayer4(2)16" type="Sprite2D" parent="."]
-position = Vector2(3049, 819.25)
+visible = false
+position = Vector2(3041, 816.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_rpbj6")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1582, 862.5)
+position = Vector2(1575.5, 862.5)
 shape = SubResource("RectangleShape2D_ryqtv")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
