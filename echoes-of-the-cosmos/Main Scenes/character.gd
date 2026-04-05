@@ -110,3 +110,13 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 func _on_area_2d_3_body_entered(body: Node2D) -> void:
 	if body == self:
 		get_tree().change_scene_to_file("res://Mercury/mercury_2.tscn")
+
+
+func _on_lava_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_next_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().change_scene_to_file("res://Venus/venus.tscn")
