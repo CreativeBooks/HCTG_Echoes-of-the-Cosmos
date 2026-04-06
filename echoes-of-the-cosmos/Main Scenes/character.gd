@@ -64,13 +64,18 @@ func activate_shield():
 	shield_count -= 1
 	update_shield_ui()
 	
+	modulate = Color(0.577, 0.754, 1.0, 0.588)
+	
 	print("Shield Activate")
 	await get_tree().create_timer(2.0).timeout
+	
+	
 	
 	deactivate_shield()
 
 func deactivate_shield():
 	is_shielded = false
+	modulate = Color(1, 1, 1, 1)  
 	print("Shield Deactivate")
 
 func update_shield_ui():
@@ -119,4 +124,29 @@ func _on_lava_body_entered(body: Node2D) -> void:
 
 func _on_next_body_entered(body: Node2D) -> void:
 	if body == self:
-		get_tree().change_scene_to_file("res://Venus/venus.tscn")
+		get_tree().change_scene_to_file("res://Venus/venus_1.tscn")
+
+
+func _on_rebound_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_respawning_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_rebound_1_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_respawning_2_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_top_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
