@@ -11,6 +11,7 @@ var can_fall := true
 var shield_count = 2
 var is_shielded = false
 
+
 @onready var Shield_Counter = get_node("/root/Mercury1/CanvasLayer/Shield_Counter")
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
@@ -34,7 +35,10 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED * delta)
 	
 	if can_fall and position.y > FALL_LIMIT_Y:
 		print("Player fell off the level (Y = ", position.y, ")")
