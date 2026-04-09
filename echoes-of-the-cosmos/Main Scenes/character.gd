@@ -128,7 +128,7 @@ func _on_lava_body_entered(body: Node2D) -> void:
 
 func _on_next_body_entered(body: Node2D) -> void:
 	if body == self:
-		get_tree().change_scene_to_file("res://Venus/venus_1.tscn")
+		get_tree().change_scene_to_file("res://Mercury/venus_to_mercury.tscn")
 
 
 func _on_rebound_body_entered(body: Node2D) -> void:
@@ -154,3 +154,8 @@ func _on_respawning_2_body_entered(body: Node2D) -> void:
 func _on_top_body_entered(body: Node2D) -> void:
 	if body == self:
 		get_tree().reload_current_scene()
+
+
+func _on_to_venus_2_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().change_scene_to_file("res://Venus/venus_2.tscn")

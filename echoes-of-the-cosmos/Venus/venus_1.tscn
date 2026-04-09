@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://quyn1hu5ooqe"]
+[gd_scene load_steps=60 format=4 uid="uid://quyn1hu5ooqe"]
 
 [ext_resource type="Texture2D" uid="uid://brg8n7782i3hb" path="res://Venus/pixil-layer-Layer 2 (1).png" id="1_r0neb"]
 [ext_resource type="Script" uid="uid://bpa54slw5e0f3" path="res://Main Scenes/character.gd" id="2_uekmr"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://i1x23ut7emnx" path="res://Venus/platform.gd" id="10_ym5r2"]
 [ext_resource type="Script" uid="uid://lmbiihsqyodg" path="res://Venus/platform_2.gd" id="11_ym5r2"]
 [ext_resource type="Script" uid="uid://b6l0b086q5lxu" path="res://Venus/platform_3.gd" id="12_gtjdy"]
+[ext_resource type="Script" uid="uid://cwum5gie521m4" path="res://Venus/platform_4.gd" id="13_d2lem"]
+[ext_resource type="Script" uid="uid://c1sf2auvcrq32" path="res://Venus/platform_5.gd" id="14_yd36v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ffslf"]
 atlas = ExtResource("3_7vorl")
@@ -2079,10 +2081,132 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtjdy"]
-size = Vector2(430, 33)
+size = Vector2(330, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6tm7"]
+size = Vector2(110.25, 32)
+
+[sub_resource type="Animation" id="Animation_e0ixh"]
+resource_name = "move_small"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 2.5333333, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(176, 138), Vector2(175.77, 60), Vector2(176, 138)]
+}
+
+[sub_resource type="Animation" id="Animation_mnsu3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(176, 138)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lv48t"]
+_data = {
+&"RESET": SubResource("Animation_mnsu3"),
+&"move_small": SubResource("Animation_e0ixh")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a683"]
+size = Vector2(110.25, 33)
+
+[sub_resource type="Animation" id="Animation_lv48t"]
+resource_name = "move_small_reverse"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 2.5333333, 5.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(529, 74), Vector2(529, 145), Vector2(529, 74)]
+}
+
+[sub_resource type="Animation" id="Animation_wenps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(529, 74)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmync"]
+_data = {
+&"RESET": SubResource("Animation_wenps"),
+&"move_small_reverse": SubResource("Animation_lv48t")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i48yh"]
 size = Vector2(3801, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wenps"]
+texture = ExtResource("5_i48yh")
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:3/0 = 0
+7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_gmync"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_wenps")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0ixh"]
+size = Vector2(1102, 994.5)
 
 [node name="Venus1" type="Node2D"]
 
@@ -2186,7 +2310,7 @@ script = ExtResource("12_gtjdy")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="platform3"]
 position = Vector2(432, -359)
-tile_map_data = PackedByteArray("AAASACIAAAAFAAEAAAASACMAAAAFAAIAAAATACIAAAAGAAEAAAATACMAAAAGAAIAAAAUACIAAAAFAAEAAAAUACMAAAAFAAIAAAAVACIAAAAGAAEAAAAVACMAAAAGAAIAAAAWACIAAAAEAAEAAAAWACMAAAAEAAIAAAAXACIAAAAFAAEAAAAXACMAAAAFAAIAAAAYACIAAAAGAAEAAAAYACMAAAAGAAIAAAAZACIAAAAEAAEAAAAZACMAAAAEAAIAAAAaACIAAAAEAAEAAAAaACMAAAAEAAIAAAAbACIAAAAFAAEAAAAbACMAAAAFAAIAAAAcACIAAAAGAAEAAAAcACMAAAAGAAIAAAAdACIAAAAEAAEAAAAdACMAAAAEAAIAAAAeACIAAAAFAAEAAAAeACMAAAAFAAIAAAAfACIAAAAEAAEAAAAfACMAAAAEAAIAAAAgACIAAAAFAAEAAAAgACMAAAAFAAIAAAAhACIAAAAGAAEAAAAhACMAAAAGAAIAAAARACIAAAAEAAEAAAARACMAAAAEAAIAAAAOACIAAAAFAAEAAAAOACMAAAAFAAIAAAAPACIAAAAGAAEAAAAPACMAAAAGAAIAAAAQACIAAAAGAAEAAAAQACMAAAAGAAIAAAANACIAAAAEAAEAAAANACMAAAAEAAIAAAAKACIAAAAEAAEAAAAKACMAAAAEAAIAAAALACIAAAAFAAEAAAALACMAAAAFAAIAAAAMACIAAAAGAAEAAAAMACMAAAAGAAIAAAAHACIAAAAEAAEAAAAHACMAAAAEAAIAAAAIACIAAAAFAAEAAAAIACMAAAAFAAIAAAAJACIAAAAGAAEAAAAJACMAAAAGAAIAAAA=")
+tile_map_data = PackedByteArray("AAASACIAAAAFAAEAAAASACMAAAAFAAIAAAATACIAAAAGAAEAAAATACMAAAAGAAIAAAAUACIAAAAFAAEAAAAUACMAAAAFAAIAAAAVACIAAAAGAAEAAAAVACMAAAAGAAIAAAAWACIAAAAEAAEAAAAWACMAAAAEAAIAAAAXACIAAAAFAAEAAAAXACMAAAAFAAIAAAAYACIAAAAGAAEAAAAYACMAAAAGAAIAAAAZACIAAAAEAAEAAAAZACMAAAAEAAIAAAAaACIAAAAEAAEAAAAaACMAAAAEAAIAAAARACIAAAAEAAEAAAARACMAAAAEAAIAAAAOACIAAAAFAAEAAAAOACMAAAAFAAIAAAAPACIAAAAGAAEAAAAPACMAAAAGAAIAAAAQACIAAAAGAAEAAAAQACMAAAAGAAIAAAANACIAAAAEAAEAAAANACMAAAAEAAIAAAAKACIAAAAEAAEAAAAKACMAAAAEAAIAAAALACIAAAAFAAEAAAALACMAAAAFAAIAAAAMACIAAAAGAAEAAAAMACMAAAAGAAIAAAAeACMAAAAFAAIAAAAeACIAAAAFAAEAAAAdACIAAAAEAAEAAAAdACMAAAAEAAIAAAAcACMAAAAGAAIAAAAcACIAAAAGAAEAAAAbACIAAAAFAAEAAAAbACMAAAAFAAIAAAA=")
 tile_set = SubResource("TileSet_yd36v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform3"]
@@ -2197,8 +2321,46 @@ libraries = {
 speed_scale = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform3"]
-position = Vector2(760, 201.5)
+position = Vector2(756.7651, 201.5)
 shape = SubResource("RectangleShape2D_gtjdy")
+
+[node name="platform4" type="AnimatableBody2D" parent="."]
+position = Vector2(176, 138)
+script = ExtResource("13_d2lem")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="platform4"]
+position = Vector2(1615, -80)
+tile_map_data = PackedByteArray("AAASACIAAAAFAAEAAAASACMAAAAFAAIAAAATACIAAAAGAAEAAAATACMAAAAGAAIAAAAUACIAAAAFAAEAAAAUACMAAAAFAAIAAAAVACIAAAAGAAEAAAAVACMAAAAGAAIAAAARACIAAAAEAAEAAAARACMAAAAEAAIAAAAPACIAAAAGAAEAAAAPACMAAAAGAAIAAAAQACIAAAAGAAEAAAAQACMAAAAGAAIAAAA=")
+tile_set = SubResource("TileSet_yd36v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform4"]
+position = Vector2(1910.875, 480)
+shape = SubResource("RectangleShape2D_r6tm7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform4"]
+libraries = {
+&"": SubResource("AnimationLibrary_lv48t")
+}
+speed_scale = 4.0
+
+[node name="platform5" type="AnimatableBody2D" parent="."]
+position = Vector2(529, 74)
+script = ExtResource("14_yd36v")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="platform5"]
+position = Vector2(1615, -80)
+tile_map_data = PackedByteArray("AAASACIAAAAFAAEAAAASACMAAAAFAAIAAAATACIAAAAGAAEAAAATACMAAAAGAAIAAAAUACIAAAAFAAEAAAAUACMAAAAFAAIAAAAVACIAAAAGAAEAAAAVACMAAAAGAAIAAAARACIAAAAEAAEAAAARACMAAAAEAAIAAAAPACIAAAAGAAEAAAAPACMAAAAGAAIAAAAQACIAAAAGAAEAAAAQACMAAAAGAAIAAAA=")
+tile_set = SubResource("TileSet_yd36v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform5"]
+position = Vector2(1910.875, 480.5)
+shape = SubResource("RectangleShape2D_5a683")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform5"]
+libraries = {
+&"": SubResource("AnimationLibrary_gmync")
+}
+speed_scale = 5.0
 
 [node name="Top" type="Area2D" parent="."]
 
@@ -2206,6 +2368,17 @@ shape = SubResource("RectangleShape2D_gtjdy")
 position = Vector2(1891, 24)
 shape = SubResource("RectangleShape2D_i48yh")
 
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AABgACEAAAAEAAEAAABgACIAAAAEAAIAAABhACEAAAAFAAEAAABhACIAAAAFAAIAAABiACEAAAAEAAEAAABiACIAAAAEAAIAAABjACEAAAAFAAEAAABjACIAAAAFAAIAAABkACEAAAAGAAEAAABkACIAAAAGAAIAAABmACQAAAAEAAEAAABmACUAAAAEAAIAAABnACQAAAAFAAEAAABnACUAAAAFAAIAAABoACQAAAAEAAEAAABoACUAAAAEAAIAAABpACQAAAAFAAEAAABpACUAAAAFAAIAAABqACQAAAAGAAEAAABqACUAAAAGAAIAAABuACcAAAAEAAEAAABuACgAAAAEAAIAAABvACcAAAAEAAEAAABvACgAAAAEAAIAAABwACcAAAAEAAEAAABwACgAAAAEAAIAAABxACcAAAAFAAEAAABxACgAAAAFAAIAAAByACcAAAAGAAEAAAByACgAAAAGAAIAAAClACsAAAAFAAEAAAClACwAAAAFAAIAAACmACsAAAAGAAEAAACmACwAAAAGAAIAAACnACsAAAAGAAEAAACnACwAAAAGAAIAAACoACsAAAAEAAEAAACoACwAAAAEAAIAAACpACsAAAAFAAEAAACpACwAAAAFAAIAAACqACsAAAAGAAEAAACqACwAAAAGAAIAAACrACsAAAAEAAEAAACrACwAAAAEAAIAAACsACsAAAAFAAEAAACsACwAAAAFAAIAAACtACsAAAAGAAEAAACtACwAAAAGAAIAAACuACsAAAAEAAEAAACuACwAAAAEAAIAAACvACsAAAAFAAEAAACvACwAAAAFAAIAAACwACsAAAAGAAEAAACwACwAAAAGAAIAAACxACsAAAAEAAEAAACxACwAAAAEAAIAAACyACsAAAAFAAEAAACyACwAAAAFAAIAAACzACsAAAAGAAEAAACzACwAAAAGAAIAAAC0ACsAAAAEAAEAAAC0ACwAAAAEAAIAAAC1ACsAAAAFAAEAAAC1ACwAAAAFAAIAAAC2ACsAAAAEAAEAAAC2ACwAAAAEAAIAAAC0AC0AAAAFAAEAAAC0AC4AAAAFAAIAAAC1AC0AAAAGAAEAAAC1AC4AAAAGAAIAAAC2AC0AAAAEAAEAAAC2AC4AAAAEAAIAAAC3ACsAAAAFAAEAAAC3ACwAAAAFAAIAAAC4ACsAAAAGAAEAAAC4ACwAAAAGAAIAAAC3AC0AAAAFAAEAAAC3AC4AAAAFAAIAAAC4AC0AAAAGAAEAAAC4AC4AAAAGAAIAAAC2AC8AAAAEAAEAAAC2ADAAAAAEAAIAAAC3AC8AAAAFAAEAAAC3ADAAAAAFAAIAAAC4AC8AAAAGAAEAAAC4ADAAAAAGAAIAAACzAC8AAAAEAAEAAACzADAAAAAEAAIAAAC0AC8AAAAFAAEAAAC0ADAAAAAFAAIAAAC1AC8AAAAGAAEAAAC1ADAAAAAGAAIAAACwAC8AAAAEAAEAAACwADAAAAAEAAIAAACxAC8AAAAFAAEAAACxADAAAAAFAAIAAACyAC8AAAAGAAEAAACyADAAAAAGAAIAAACtAC8AAAAEAAEAAACtADAAAAAEAAIAAACuAC8AAAAFAAEAAACuADAAAAAFAAIAAACvAC8AAAAGAAEAAACvADAAAAAGAAIAAACqAC8AAAAEAAEAAACqADAAAAAEAAIAAACrAC8AAAAFAAEAAACrADAAAAAFAAIAAACsAC8AAAAGAAEAAACsADAAAAAGAAIAAACnAC8AAAAEAAEAAACnADAAAAAEAAIAAACoAC8AAAAFAAEAAACoADAAAAAFAAIAAACpAC8AAAAGAAEAAACpADAAAAAGAAIAAACkAC8AAAAEAAEAAACkADAAAAAEAAIAAAClAC8AAAAFAAEAAAClADAAAAAFAAIAAACmAC8AAAAGAAEAAACmADAAAAAGAAIAAACkAC0AAAAEAAEAAACkAC4AAAAEAAIAAAClAC0AAAAFAAEAAAClAC4AAAAFAAIAAACmAC0AAAAGAAEAAACmAC4AAAAGAAIAAACkACsAAAAEAAEAAACkACwAAAAEAAIAAACnAC0AAAAEAAEAAACnAC4AAAAEAAIAAACoAC0AAAAFAAEAAACoAC4AAAAFAAIAAACpAC0AAAAGAAEAAACpAC4AAAAGAAIAAACqAC0AAAAEAAEAAACqAC4AAAAEAAIAAACrAC0AAAAFAAEAAACrAC4AAAAFAAIAAACsAC0AAAAGAAEAAACsAC4AAAAGAAIAAACtAC0AAAAEAAEAAACtAC4AAAAEAAIAAACuAC0AAAAFAAEAAACuAC4AAAAFAAIAAACvAC0AAAAGAAEAAACvAC4AAAAGAAIAAACwAC0AAAAEAAEAAACwAC4AAAAEAAIAAACxAC0AAAAFAAEAAACxAC4AAAAFAAIAAACyAC0AAAAGAAEAAACyAC4AAAAGAAIAAACzAC0AAAAEAAEAAACzAC4AAAAEAAIAAAA=")
+tile_set = SubResource("TileSet_gmync")
+
+[node name="To Venus 2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="To Venus 2"]
+position = Vector2(3502, 551.75)
+shape = SubResource("RectangleShape2D_e0ixh")
+
 [connection signal="body_entered" from="Rebound1" to="Character" method="_on_rebound_1_body_entered"]
 [connection signal="body_entered" from="Respawning2" to="Character" method="_on_respawning_2_body_entered"]
 [connection signal="body_entered" from="Top" to="Character" method="_on_top_body_entered"]
+[connection signal="body_entered" from="To Venus 2" to="Character" method="_on_to_venus_2_body_entered"]
