@@ -185,3 +185,18 @@ func _on_repsawn_4_body_entered(body: Node2D) -> void:
 func _on_rebound_2_body_entered(body: Node2D) -> void:
 	if body == self:
 		get_tree().reload_current_scene()
+
+
+func _on_sulfur_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_rebound_5_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_to_asteroid_belt_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().change_scene_to_file("res://Mars/mars_to_Asteroid_belt.tscn")

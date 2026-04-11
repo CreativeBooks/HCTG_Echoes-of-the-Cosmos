@@ -193,6 +193,10 @@ shape = SubResource("RectangleShape2D_3hod8")
 position = Vector2(3004, 438)
 shape = SubResource("RectangleShape2D_qykdk")
 
+[node name="RespawnPoint" type="Marker2D" parent="."]
+position = Vector2(29, 565)
+gizmo_extents = 130.2
+
 [connection signal="body_entered" from="respawn3" to="Character" method="_on_respawn_3_body_entered"]
 [connection signal="body_entered" from="off_screen" to="Character" method="_on_off_screen_body_entered"]
 [connection signal="body_entered" from="to mars" to="Character" method="_on_to_mars_body_entered"]
