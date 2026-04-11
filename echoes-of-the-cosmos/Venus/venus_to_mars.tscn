@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8xmei8qwl0a1"]
+
+[ext_resource type="Script" uid="uid://cja6jeotrqatu" path="res://Venus/venus_to_mars.gd" id="1_5ww7l"]
+[ext_resource type="Texture2D" uid="uid://ckyk2d28tph78" path="res://Mercury/pixil-layer-Layer 3 (1).png" id="2_tg8l4"]
+[ext_resource type="FontFile" uid="uid://dftajxtvi4dt0" path="res://Main Scenes/Main Scene Files/Sprintura Demo.otf" id="3_fnq20"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p20tr"]
+bg_color = Color(0.056329295, 0.354225, 0.20002937, 0.44313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8glth"]
+bg_color = Color(0.38229337, 0.6345698, 0.38573393, 1)
+
+[node name="VenusToMars" type="Node2D"]
+script = ExtResource("1_5ww7l")
+
+[node name="PixilLayerLayer3(1)" type="Sprite2D" parent="."]
+position = Vector2(566, 347)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_tg8l4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 35.0
+offset_top = 58.0
+offset_right = 1138.0
+offset_bottom = 427.0
+theme_override_fonts/font = ExtResource("3_fnq20")
+theme_override_font_sizes/font_size = 53
+text = "Congratilations Cadet, 
+you survived the blistering 
+heat of venus!
+
+Up Next Mars, 
+ready to face red beast?"
+
+[node name="mars" type="Button" parent="."]
+offset_left = 386.0
+offset_top = 514.0
+offset_right = 754.0
+offset_bottom = 585.0
+theme_override_colors/font_color = Color(0.13265222, 0.22499695, 0.7896435, 1)
+theme_override_colors/font_hover_color = Color(0.109707154, 0.17195639, 0.46731907, 0.99215686)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_fnq20")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_p20tr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8glth")
+text = "Ready!"
+
+[connection signal="pressed" from="mars" to="." method="_on_mars_pressed"]

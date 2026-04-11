@@ -1,0 +1,145 @@
+[gd_scene load_steps=16 format=3 uid="uid://bi0jv03xh4sv4"]
+
+[ext_resource type="Texture2D" uid="uid://c622x51aua6j1" path="res://Mars/pixil-layer-Layer 1 (4).png" id="1_7oaxx"]
+[ext_resource type="Script" uid="uid://bpa54slw5e0f3" path="res://Main Scenes/character.gd" id="2_s3r6t"]
+[ext_resource type="Texture2D" uid="uid://dbyc8khhihbdg" path="res://character.png" id="3_1vgj0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffslf"]
+atlas = ExtResource("3_1vgj0")
+region = Rect2(0, 0, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni0fg"]
+atlas = ExtResource("3_1vgj0")
+region = Rect2(323, 0, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u4g3"]
+atlas = ExtResource("3_1vgj0")
+region = Rect2(646, 0, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l1jr"]
+atlas = ExtResource("3_1vgj0")
+region = Rect2(0, 476, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0p7v"]
+atlas = ExtResource("3_1vgj0")
+region = Rect2(0, 476, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx1vq"]
+atlas = ExtResource("3_1vgj0")
+region = Rect2(646, 476, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0xtj"]
+atlas = ExtResource("3_1vgj0")
+region = Rect2(323, 476, 323, 475)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwlp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffslf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni0fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u4g3")
+}],
+"loop": true,
+"name": &"Backwards",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l1jr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0p7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx1vq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0xtj")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 10.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_fe1rq"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhxhc"]
+size = Vector2(13.33333, 94.666626)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ro4k"]
+size = Vector2(3072, 154)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x73f4"]
+size = Vector2(196, 1012)
+
+[node name="Mars1" type="Node2D"]
+
+[node name="PixilLayerLayer1(4)" type="Sprite2D" parent="."]
+position = Vector2(760, 427)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_7oaxx")
+
+[node name="PixilLayerLayer1(4)2" type="Sprite2D" parent="."]
+position = Vector2(2294, 427)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_7oaxx")
+
+[node name="Character" type="CharacterBody2D" parent="."]
+position = Vector2(-29, 154)
+script = ExtResource("2_s3r6t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character"]
+position = Vector2(55, 409)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_gwlp2")
+animation = &"Idle"
+script = SubResource("GDScript_fe1rq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
+position = Vector2(58, 417)
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_uhxhc")
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+position = Vector2(604, 184)
+limit_left = 2
+limit_top = 120
+limit_right = 2962
+limit_bottom = 859
+
+[node name="repsawn4" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="repsawn4"]
+position = Vector2(1524, 921)
+shape = SubResource("RectangleShape2D_8ro4k")
+
+[node name="rebound_2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rebound_2"]
+position = Vector2(-108, 496)
+shape = SubResource("RectangleShape2D_x73f4")
+
+[connection signal="body_entered" from="repsawn4" to="Character" method="_on_repsawn_4_body_entered"]
+[connection signal="body_entered" from="rebound_2" to="Character" method="_on_rebound_2_body_entered"]

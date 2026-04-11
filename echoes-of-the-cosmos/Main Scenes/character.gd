@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Jump") and jump_count < 2:
 		jump_count += 1
 		velocity.y = JUMP_VELOCITY
+	
 
 	
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -159,3 +160,28 @@ func _on_top_body_entered(body: Node2D) -> void:
 func _on_to_venus_2_body_entered(body: Node2D) -> void:
 	if body == self:
 		get_tree().change_scene_to_file("res://Venus/venus_2.tscn")
+
+
+func _on_respawn_3_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_off_screen_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_to_mars_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().change_scene_to_file("res://Venus/venus_to_mars.tscn")
+
+
+func _on_repsawn_4_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_rebound_2_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
