@@ -1,6 +1,6 @@
 [gd_scene load_steps=60 format=4 uid="uid://quyn1hu5ooqe"]
 
-[ext_resource type="Texture2D" uid="uid://brg8n7782i3hb" path="res://Venus/pixil-layer-Layer 2 (1).png" id="1_r0neb"]
+[ext_resource type="Texture2D" uid="uid://bwj3lsmedxpjp" path="res://Venus/pixil-layer-Layer 2 (4).png" id="1_yd36v"]
 [ext_resource type="Script" uid="uid://bpa54slw5e0f3" path="res://Main Scenes/character.gd" id="2_uekmr"]
 [ext_resource type="Texture2D" uid="uid://dbyc8khhihbdg" path="res://character.png" id="3_7vorl"]
 [ext_resource type="Texture2D" uid="uid://bf00uu5qjkijl" path="res://black.jpeg" id="4_8uen8"]
@@ -1963,6 +1963,21 @@ sources/0 = SubResource("TileSetAtlasSource_d2lem")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21wre"]
 size = Vector2(187.5, 29)
 
+[sub_resource type="Animation" id="Animation_5a683"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_r6tm7"]
 resource_name = "moving"
 length = 12.0
@@ -1980,7 +1995,13 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -450), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_5a683"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e0ixh"]
+_data = {
+&"RESET": SubResource("Animation_5a683"),
+&"moving": SubResource("Animation_r6tm7")
+}
+
+[sub_resource type="Animation" id="Animation_d2lem"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1992,13 +2013,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_e0ixh"]
-_data = {
-&"RESET": SubResource("Animation_5a683"),
-&"moving": SubResource("Animation_r6tm7")
+"values": [Vector2(318, 150)]
 }
 
 [sub_resource type="Animation" id="Animation_gtjdy"]
@@ -2018,7 +2033,16 @@ tracks/0/keys = {
 "values": [Vector2(318, 150), Vector2(318, -200), Vector2(318, 150)]
 }
 
-[sub_resource type="Animation" id="Animation_d2lem"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yd36v"]
+_data = {
+&"RESET": SubResource("Animation_d2lem"),
+&"move": SubResource("Animation_gtjdy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym5r2"]
+size = Vector2(124, 29.5)
+
+[sub_resource type="Animation" id="Animation_21wre"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2030,17 +2054,8 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(318, 150)]
+"values": [Vector2(176, 138)]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yd36v"]
-_data = {
-&"RESET": SubResource("Animation_d2lem"),
-&"move": SubResource("Animation_gtjdy")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ym5r2"]
-size = Vector2(124, 29.5)
 
 [sub_resource type="Animation" id="Animation_yd36v"]
 resource_name = "up+down"
@@ -2059,7 +2074,19 @@ tracks/0/keys = {
 "values": [Vector2(176, 138), Vector2(700, 138), Vector2(176, 138)]
 }
 
-[sub_resource type="Animation" id="Animation_21wre"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r6tm7"]
+_data = {
+&"RESET": SubResource("Animation_21wre"),
+&"up+down": SubResource("Animation_yd36v")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtjdy"]
+size = Vector2(330, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6tm7"]
+size = Vector2(110.25, 32)
+
+[sub_resource type="Animation" id="Animation_mnsu3"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2073,18 +2100,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(176, 138)]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_r6tm7"]
-_data = {
-&"RESET": SubResource("Animation_21wre"),
-&"up+down": SubResource("Animation_yd36v")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtjdy"]
-size = Vector2(330, 33)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6tm7"]
-size = Vector2(110.25, 32)
 
 [sub_resource type="Animation" id="Animation_e0ixh"]
 resource_name = "move_small"
@@ -2103,7 +2118,16 @@ tracks/0/keys = {
 "values": [Vector2(176, 138), Vector2(175.77, 60), Vector2(176, 138)]
 }
 
-[sub_resource type="Animation" id="Animation_mnsu3"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lv48t"]
+_data = {
+&"RESET": SubResource("Animation_mnsu3"),
+&"move_small": SubResource("Animation_e0ixh")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a683"]
+size = Vector2(110.25, 33)
+
+[sub_resource type="Animation" id="Animation_wenps"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2115,17 +2139,8 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(176, 138)]
+"values": [Vector2(529, 74)]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lv48t"]
-_data = {
-&"RESET": SubResource("Animation_mnsu3"),
-&"move_small": SubResource("Animation_e0ixh")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a683"]
-size = Vector2(110.25, 33)
 
 [sub_resource type="Animation" id="Animation_lv48t"]
 resource_name = "move_small_reverse"
@@ -2142,21 +2157,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(529, 74), Vector2(529, 145), Vector2(529, 74)]
-}
-
-[sub_resource type="Animation" id="Animation_wenps"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(529, 74)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gmync"]
@@ -2213,17 +2213,17 @@ size = Vector2(1102, 994.5)
 [node name="Venus" type="Sprite2D" parent="."]
 position = Vector2(636, 531)
 scale = Vector2(1.25562, 1.5139729)
-texture = ExtResource("1_r0neb")
+texture = ExtResource("1_yd36v")
 
 [node name="Venus2" type="Sprite2D" parent="."]
-position = Vector2(1914, 530.00006)
+position = Vector2(1920.0001, 533.00006)
 scale = Vector2(1.25562, 1.5139729)
-texture = ExtResource("1_r0neb")
+texture = ExtResource("1_yd36v")
 
 [node name="Venus3" type="Sprite2D" parent="."]
-position = Vector2(3186, 530)
+position = Vector2(3201.0002, 535)
 scale = Vector2(1.25562, 1.5139729)
-texture = ExtResource("1_r0neb")
+texture = ExtResource("1_yd36v")
 
 [node name="Character" type="CharacterBody2D" parent="."]
 position = Vector2(-29, 154)

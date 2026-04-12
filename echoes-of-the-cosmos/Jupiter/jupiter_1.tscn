@@ -1,0 +1,151 @@
+[gd_scene load_steps=16 format=3 uid="uid://drvseo1i8dh6d"]
+
+[ext_resource type="Texture2D" uid="uid://dq7l6u2km7o7w" path="res://Jupiter/pixil-layer-Layer 7.png" id="1_6u47c"]
+[ext_resource type="Script" uid="uid://bpa54slw5e0f3" path="res://Main Scenes/character.gd" id="2_whbec"]
+[ext_resource type="Texture2D" uid="uid://dbyc8khhihbdg" path="res://character.png" id="3_babch"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffslf"]
+atlas = ExtResource("3_babch")
+region = Rect2(0, 0, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni0fg"]
+atlas = ExtResource("3_babch")
+region = Rect2(323, 0, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u4g3"]
+atlas = ExtResource("3_babch")
+region = Rect2(646, 0, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l1jr"]
+atlas = ExtResource("3_babch")
+region = Rect2(0, 476, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0p7v"]
+atlas = ExtResource("3_babch")
+region = Rect2(0, 476, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx1vq"]
+atlas = ExtResource("3_babch")
+region = Rect2(646, 476, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0xtj"]
+atlas = ExtResource("3_babch")
+region = Rect2(323, 476, 323, 475)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ua3ik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffslf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni0fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u4g3")
+}],
+"loop": true,
+"name": &"Backwards",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l1jr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0p7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx1vq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0xtj")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 10.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_xgyur"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eksly"]
+size = Vector2(13.33333, 94.666626)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sllo"]
+size = Vector2(271, 926)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayg61"]
+size = Vector2(3520, 221)
+
+[node name="Jupiter" type="Node2D"]
+
+[node name="PixilLayerLayer7" type="Sprite2D" parent="."]
+position = Vector2(646, 485.875)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_6u47c")
+
+[node name="PixilLayerLayer8" type="Sprite2D" parent="."]
+position = Vector2(1667, 484.875)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_6u47c")
+
+[node name="PixilLayerLayer9" type="Sprite2D" parent="."]
+position = Vector2(2891, 483)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_6u47c")
+
+[node name="Character" type="CharacterBody2D" parent="."]
+position = Vector2(-29, 154)
+script = ExtResource("2_whbec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character"]
+position = Vector2(105, 408)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_ua3ik")
+animation = &"Idle"
+script = SubResource("GDScript_xgyur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
+position = Vector2(106, 417)
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_eksly")
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+position = Vector2(604, 184)
+limit_left = 2
+limit_top = 120
+limit_right = 2962
+limit_bottom = 859
+
+[node name="RespawnPoint" type="Marker2D" parent="."]
+position = Vector2(29, 565)
+gizmo_extents = 130.2
+
+[node name="respawn6" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="respawn6"]
+position = Vector2(-136, 456)
+shape = SubResource("RectangleShape2D_7sllo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="respawn6"]
+position = Vector2(1763, 1022)
+shape = SubResource("RectangleShape2D_ayg61")
+
+[connection signal="body_entered" from="respawn6" to="Character" method="_on_respawn_6_body_entered"]

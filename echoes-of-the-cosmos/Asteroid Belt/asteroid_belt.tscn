@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dnhj3d6amcw0c"]
+[gd_scene load_steps=27 format=3 uid="uid://dnhj3d6amcw0c"]
 
 [ext_resource type="Texture2D" uid="uid://ckyk2d28tph78" path="res://Mercury/pixil-layer-Layer 3 (1).png" id="1_d77of"]
 [ext_resource type="Script" uid="uid://bpa54slw5e0f3" path="res://Main Scenes/character.gd" id="2_j3lvs"]
@@ -111,13 +111,19 @@ radius = 348.14365
 radius = 95.07891
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nxuy3"]
-radius = 531.67377
+radius = 469.51572
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d77of"]
 size = Vector2(3052.5, 261)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3lvs"]
 size = Vector2(3060, 230)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi8cq"]
+size = Vector2(330, 1384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgk50"]
+size = Vector2(248, 508)
 
 [node name="AsteroidBelt" type="Node2D"]
 
@@ -192,7 +198,7 @@ position = Vector2(2219, 116)
 shape = SubResource("CircleShape2D_q1q0s")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="asteroid"]
-position = Vector2(2907, 243)
+position = Vector2(2920, 206)
 shape = SubResource("CircleShape2D_nxuy3")
 
 [node name="repsawn5" type="Area2D" parent="."]
@@ -204,6 +210,10 @@ shape = SubResource("RectangleShape2D_d77of")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="repsawn5"]
 position = Vector2(1528, -26)
 shape = SubResource("RectangleShape2D_j3lvs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="repsawn5"]
+position = Vector2(-177, 464)
+shape = SubResource("RectangleShape2D_pi8cq")
 
 [node name="RespawnPoint" type="Marker2D" parent="."]
 position = Vector2(75, 561)
@@ -311,4 +321,11 @@ texture = ExtResource("4_mgk50")
 position = Vector2(2903, 255)
 polygon = PackedVector2Array(-202, -288, -114, -292, -114, -262, 87, -260, 89, -292, 217, -292, 217, -260, 383, -260, 384, -227, 414, -227, 413, -132, 383, -132, 381, -72, 350, -72, 350, -34, 321, -31, 318, 223, 288, 222, 284, 263, 257, 263, 256, 288, 91, 292, 90, 321, -107, 318, -107, 295, -169, 296, -169, 267, -201, 267, -201, 237, -238, 237, -238, 203, -266, 201, -267, 161, -299, 159, -299, 99, -334, 97, -335, -195, -308, -195, -307, -227, -269, -227, -269, -258, -209, -260)
 
+[node name="to jupiter" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to jupiter"]
+position = Vector2(3168, 876)
+shape = SubResource("RectangleShape2D_mgk50")
+
 [connection signal="body_entered" from="repsawn5" to="Character" method="_on_repsawn_5_body_entered"]
+[connection signal="body_entered" from="to jupiter" to="Character" method="_on_to_jupiter_body_entered"]

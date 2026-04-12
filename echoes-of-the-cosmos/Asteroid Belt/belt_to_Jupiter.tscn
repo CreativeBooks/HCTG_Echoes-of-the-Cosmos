@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs7o0bpjl1y84"]
+
+[ext_resource type="Script" uid="uid://c1oiic02635fb" path="res://Asteroid Belt/belt_to_jupiter.gd" id="1_77dxl"]
+[ext_resource type="Texture2D" uid="uid://ckyk2d28tph78" path="res://Mercury/pixil-layer-Layer 3 (1).png" id="1_s7vt7"]
+[ext_resource type="FontFile" uid="uid://dftajxtvi4dt0" path="res://Main Scenes/Main Scene Files/Sprintura Demo.otf" id="2_77dxl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23nv1"]
+bg_color = Color(0.056329295, 0.354225, 0.20002937, 0.44313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mfwy"]
+bg_color = Color(0.38229337, 0.6345698, 0.38573393, 1)
+
+[node name="BeltToJupiter" type="Node2D"]
+script = ExtResource("1_77dxl")
+
+[node name="PixilLayerLayer3(1)" type="Sprite2D" parent="."]
+position = Vector2(630, 373)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_s7vt7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 37.0
+offset_top = 74.0
+offset_right = 1123.0
+offset_bottom = 421.0
+theme_override_fonts/font = ExtResource("2_77dxl")
+theme_override_font_sizes/font_size = 60
+text = "Congratilations Cadet, 
+you survived the 
+Asteroid belt!
+
+Up Next, the Giants."
+
+[node name="jupiter" type="Button" parent="."]
+offset_left = 388.0
+offset_top = 482.0
+offset_right = 756.0
+offset_bottom = 553.0
+theme_override_colors/font_color = Color(0.13265222, 0.22499695, 0.7896435, 1)
+theme_override_colors/font_hover_color = Color(0.109707154, 0.17195639, 0.46731907, 0.99215686)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("2_77dxl")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_23nv1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0mfwy")
+text = "Ready!"
+
+[connection signal="pressed" from="jupiter" to="." method="_on_jupiter_pressed"]

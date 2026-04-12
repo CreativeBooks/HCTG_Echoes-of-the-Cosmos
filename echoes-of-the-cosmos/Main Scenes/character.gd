@@ -236,3 +236,13 @@ func _on_to_asteroid_belt_body_entered(body: Node2D) -> void:
 func _on_repsawn_5_body_entered(body: Node2D) -> void:
 	if body == self:
 		get_tree().reload_current_scene()
+
+
+func _on_to_jupiter_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().change_scene_to_file("res://Asteroid Belt/belt_to_Jupiter.tscn")
+
+
+func _on_respawn_6_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
