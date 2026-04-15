@@ -271,3 +271,28 @@ func _on_respawn_8_body_entered(body: Node2D) -> void:
 func _on_to_saturn_3_body_entered(body: Node2D) -> void:
 	if body == self:
 		get_tree().change_scene_to_file("res://Saturn/saturn_2.tscn")
+
+
+func _on_respawn_9_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_respawn_10_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_to_uranus_2_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().change_scene_to_file("res://Uranus/uranus_2.tscn")
+
+
+func _on_respawn_11_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_to_neptune_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().change_scene_to_file("res://Neptune/neptune_1.tscn")

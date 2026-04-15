@@ -29,7 +29,7 @@ text = "Congratilations Cadet,
 you survived the gas 
 giant!
 
-Up Next, the ringer planet."
+Up Next, the ringed planet."
 
 [node name="saturn" type="Button" parent="."]
 offset_left = 388.0
