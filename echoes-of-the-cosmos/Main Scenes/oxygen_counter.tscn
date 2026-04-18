@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://campw3jgyaik4"]
+
+[ext_resource type="Script" uid="uid://dsps5s8ivnmj7" path="res://Main Scenes/oxygen_counter.gd" id="1_xbq0h"]
+[ext_resource type="FontFile" uid="uid://dftajxtvi4dt0" path="res://Main Scenes/Main Scene Files/Sprintura Demo.otf" id="2_gtxdh"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=483543613]
+script = ExtResource("1_xbq0h")
+
+[node name="Label" type="Label" parent="." unique_id=1316365779]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_gtxdh")
+theme_override_font_sizes/font_size = 49
+text = "0
+"

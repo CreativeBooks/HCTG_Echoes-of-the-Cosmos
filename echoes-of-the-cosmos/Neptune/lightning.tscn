@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://cdsrtqc0gn43o"]
 
-[node name="Lightning" type="Node2D" unique_id=2037984448]
+[ext_resource type="Script" uid="uid://b2c64l37fydcn" path="res://Neptune/lightning.gd" id="1_gjsoh"]
+[ext_resource type="Texture2D" uid="uid://cwmo3tm7alpbi" path="res://Neptune/pixil-layer-Layer 1 (8).png" id="2_83diu"]
+
+[node name="lightning" type="Area2D" unique_id=2000937680]
+script = ExtResource("1_gjsoh")
+
+[node name="PixilLayerLayer1(8)" type="Sprite2D" parent="." unique_id=402936407]
+position = Vector2(220, 155)
+texture = ExtResource("2_83diu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=106212351]
+position = Vector2(432, 296)
+polygon = PackedVector2Array(-9, -92, -5, -92, -5, -84, -1, -84, -1, -77, 3, -77, 3, -68, 7, -68, 7, -64, 3, -64, 3, -60, -5, -60, -5, -56, -9, -56, -9, -52, -13, -52, -13, -48, -17, -48, -17, -44, -13, -44, -13, -41, -9, -41, -9, -37, -9, -36, -5, -36, -5, -32, 3, -32, 3, -28, 11, -28, 11, -24, 19, -24, 19, -21, 19, -20, 23, -20, 23, -16, 27, -16, 27, -12, 23, -12, 23, -8, 15, -8, 15, -4, 7, -4, 7, 0, 3, 0, 3, 4, -1, 4, -1, 12, 7, 12, 7, 16, 15, 16, 15, 20, 11, 20, 11, 24, 3, 24, 3, 28, -5, 28, -5, 36, -1, 36, -1, 56, -5, 56, -5, 44, -9, 44, -9, 36, -13, 36, -13, 28, -9, 28, -9, 24, -5, 24, -5, 19, -1, 19, -1, 16, -13, 16, -13, 12, -17, 12, -17, 8, -13, 8, -13, 4, -10, 4, -9, 4, -9, 0, -1, 0, -1, -4, 3, -4, 3, -9, 11, -9, 11, -12, 15, -12, 15, -16, 7, -16, 7, -20, 3, -20, 3, -24, -13, -24, -13, -28, -17, -28, -17, -36, -20, -36, -21, -36, -21, -44, -25, -44, -25, -48, -29, -48, -29, -52, -21, -52, -21, -56, -13, -56, -13, -60, -6, -60, -6, -64, -1, -64, -1, -72, -5, -72, -5, -80, -9, -80)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

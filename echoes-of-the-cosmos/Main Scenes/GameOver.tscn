@@ -1,3 +1,46 @@
 [gd_scene format=3 uid="uid://guchutbp4xsq"]
 
-[node name="GameOver" type="Node2D"]
+[ext_resource type="Script" uid="uid://x2cr2chr07iy" path="res://Main Scenes/game_over.gd" id="1_1rysu"]
+[ext_resource type="Texture2D" uid="uid://ckyk2d28tph78" path="res://Mercury/pixil-layer-Layer 3 (1).png" id="1_5ywvh"]
+[ext_resource type="FontFile" uid="uid://dftajxtvi4dt0" path="res://Main Scenes/Main Scene Files/Sprintura Demo.otf" id="2_1rysu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpv7q"]
+bg_color = Color(0.056329295, 0.354225, 0.20002937, 0.44313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ouv4"]
+bg_color = Color(0.38229337, 0.6345698, 0.38573393, 1)
+
+[node name="GameOver" type="Node2D" unique_id=341362979]
+script = ExtResource("1_1rysu")
+
+[node name="PixilLayerLayer3(1)" type="Sprite2D" parent="." unique_id=527816311]
+position = Vector2(584.00006, 359.00003)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_5ywvh")
+
+[node name="Label" type="Label" parent="." unique_id=2095682699]
+offset_left = 36.0
+offset_top = 96.0
+offset_right = 1125.0
+offset_bottom = 300.0
+theme_override_fonts/font = ExtResource("2_1rysu")
+theme_override_font_sizes/font_size = 58
+text = "Congratulations Cadet, 
+you have returned home, 
+to Earth!"
+
+[node name="Start" type="Button" parent="." unique_id=95232626]
+offset_left = 52.0
+offset_top = 393.0
+offset_right = 420.0
+offset_bottom = 464.0
+theme_override_colors/font_color = Color(0.13265222, 0.22499695, 0.7896435, 1)
+theme_override_colors/font_hover_color = Color(0.109707154, 0.17195639, 0.46731907, 0.99215686)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("2_1rysu")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_tpv7q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3ouv4")
+text = "Exit"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

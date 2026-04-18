@@ -309,3 +309,13 @@ func _on_to_neptune_2_body_entered(body: Node2D) -> void:
 func _on_to_uranus_body_entered(body: Node2D) -> void:
 	if body == self:
 		get_tree().change_scene_to_file("res://Saturn/saturn_to_uranus.tscn")
+
+
+func _on_respawn_13_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+
+func _on_game_over_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().change_scene_to_file("res://Main Scenes/GameOver.tscn")
