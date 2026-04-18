@@ -118,7 +118,6 @@ func update_shield_ui():
 	if Shield_Counter:
 		Shield_Counter.text = "Shield Counter: " + str(shield_count)
 
-
 func find_respawn_point():
 	var root = get_tree().current_scene
 	var point = root.get_node_or_null("RespawnPoint")
@@ -137,11 +136,12 @@ func respawn():
 	can_fall = false
 	just_respawned = true
 	print(" Player moved to: ", position)
+	get_tree().reload_current_scene()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == self:
 		get_tree().reload_current_scene()
-
+		
 
 func _on_area_2d_2_body_entered(body: Node2D) -> void:
 	if body == self:
@@ -156,6 +156,7 @@ func _on_area_2d_3_body_entered(body: Node2D) -> void:
 func _on_lava_body_entered(body: Node2D) -> void:
 	if body == self:
 		get_tree().reload_current_scene()
+		
 
 
 func _on_next_body_entered(body: Node2D) -> void:
@@ -176,7 +177,6 @@ func _on_respawning_body_entered(body: Node2D) -> void:
 func _on_rebound_1_body_entered(body: Node2D) -> void:
 	if body == self:
 		get_tree().reload_current_scene()
-
 
 func _on_respawning_2_body_entered(body: Node2D) -> void:
 	if body == self:
@@ -226,7 +226,6 @@ func _on_sulfur_body_entered(body: Node2D) -> void:
 func _on_rebound_5_body_entered(body: Node2D) -> void:
 	if body == self:
 		get_tree().reload_current_scene()
-
 
 func _on_to_asteroid_belt_body_entered(body: Node2D) -> void:
 	if body == self:
@@ -295,4 +294,18 @@ func _on_respawn_11_body_entered(body: Node2D) -> void:
 
 func _on_to_neptune_body_entered(body: Node2D) -> void:
 	if body == self:
-		get_tree().change_scene_to_file("res://Neptune/neptune_1.tscn")
+		get_tree().change_scene_to_file("res://Uranus/uranus_to_neptune.tscn")
+
+
+func _on_respawn_12_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().reload_current_scene()
+
+func _on_to_neptune_2_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().change_scene_to_file("res://Neptune/neptune_2.tscn")
+
+
+func _on_to_uranus_body_entered(body: Node2D) -> void:
+	if body == self:
+		get_tree().change_scene_to_file("res://Saturn/saturn_to_uranus.tscn")

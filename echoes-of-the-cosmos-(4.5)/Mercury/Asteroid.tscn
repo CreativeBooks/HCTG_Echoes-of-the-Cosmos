@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpfq4v6881lt5"]
+
+[ext_resource type="Script" uid="uid://nkkde6ox8h1" path="res://Mercury/Asteroid.gd" id="1_0kyea"]
+[ext_resource type="Texture2D" uid="uid://ck2lnln8em0cy" path="res://Mercury/Mercury_1 Files/pixil-layer-Background.png" id="2_o43t7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bghmx"]
+size = Vector2(17.126982, 67.14134)
+
+[node name="Asteroid" type="Area2D"]
+script = ExtResource("1_0kyea")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(288, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("2_o43t7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(346.00003, 332.00006)
+rotation = 0.77667147
+skew = -0.11344671
+shape = SubResource("RectangleShape2D_bghmx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

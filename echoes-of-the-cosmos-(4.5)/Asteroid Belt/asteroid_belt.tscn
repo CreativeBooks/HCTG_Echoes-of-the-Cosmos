@@ -1,0 +1,331 @@
+[gd_scene load_steps=27 format=3 uid="uid://dnhj3d6amcw0c"]
+
+[ext_resource type="Texture2D" uid="uid://ckyk2d28tph78" path="res://Mercury/pixil-layer-Layer 3 (1).png" id="1_d77of"]
+[ext_resource type="Script" uid="uid://bpa54slw5e0f3" path="res://Main Scenes/character.gd" id="2_j3lvs"]
+[ext_resource type="Texture2D" uid="uid://dbyc8khhihbdg" path="res://character.png" id="3_pi8cq"]
+[ext_resource type="Texture2D" uid="uid://erck3d76dihu" path="res://Asteroid Belt/download.png" id="4_mgk50"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffslf"]
+atlas = ExtResource("3_pi8cq")
+region = Rect2(0, 0, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni0fg"]
+atlas = ExtResource("3_pi8cq")
+region = Rect2(323, 0, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u4g3"]
+atlas = ExtResource("3_pi8cq")
+region = Rect2(646, 0, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l1jr"]
+atlas = ExtResource("3_pi8cq")
+region = Rect2(0, 476, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0p7v"]
+atlas = ExtResource("3_pi8cq")
+region = Rect2(0, 476, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx1vq"]
+atlas = ExtResource("3_pi8cq")
+region = Rect2(646, 476, 323, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0xtj"]
+atlas = ExtResource("3_pi8cq")
+region = Rect2(323, 476, 323, 475)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fi2oq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffslf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni0fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u4g3")
+}],
+"loop": true,
+"name": &"Backwards",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l1jr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0p7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx1vq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0xtj")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 10.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_q1q0s"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxuy3"]
+size = Vector2(13.33333, 94.666626)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_557fg"]
+radius = 258.00195
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d77of"]
+radius = 287.08536
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3lvs"]
+radius = 151.00331
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pi8cq"]
+radius = 132.74034
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mgk50"]
+radius = 135.09256
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fi2oq"]
+radius = 348.14365
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q1q0s"]
+radius = 95.07891
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nxuy3"]
+radius = 469.51572
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d77of"]
+size = Vector2(3052.5, 261)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3lvs"]
+size = Vector2(3060, 230)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi8cq"]
+size = Vector2(330, 1384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgk50"]
+size = Vector2(248, 508)
+
+[node name="AsteroidBelt" type="Node2D"]
+
+[node name="PixilLayerLayer3(1)" type="Sprite2D" parent="."]
+position = Vector2(756.4999, 500)
+scale = Vector2(1.5380859, 1.5)
+texture = ExtResource("1_d77of")
+
+[node name="PixilLayerLayer3(1)2" type="Sprite2D" parent="."]
+position = Vector2(2307, 500.00003)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_d77of")
+
+[node name="Character" type="CharacterBody2D" parent="."]
+position = Vector2(-29, 154)
+script = ExtResource("2_j3lvs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character"]
+position = Vector2(105, 408)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_fi2oq")
+animation = &"Idle"
+script = SubResource("GDScript_q1q0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
+position = Vector2(106, 417)
+scale = Vector2(0.75, 0.75)
+shape = SubResource("RectangleShape2D_nxuy3")
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+position = Vector2(604, 184)
+limit_left = 2
+limit_top = 120
+limit_right = 2962
+limit_bottom = 859
+
+[node name="asteroid" type="Area2D" parent="."]
+gravity_space_override = 3
+gravity_point = true
+gravity_point_unit_distance = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="asteroid"]
+position = Vector2(573, 445)
+shape = SubResource("CircleShape2D_557fg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="asteroid"]
+position = Vector2(1229, 237)
+shape = SubResource("CircleShape2D_d77of")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="asteroid"]
+position = Vector2(1321, 681)
+shape = SubResource("CircleShape2D_j3lvs")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="asteroid"]
+position = Vector2(1743, 274)
+shape = SubResource("CircleShape2D_pi8cq")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="asteroid"]
+position = Vector2(1606, 661)
+shape = SubResource("CircleShape2D_mgk50")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="asteroid"]
+position = Vector2(945, 633)
+shape = SubResource("CircleShape2D_mgk50")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="asteroid"]
+position = Vector2(2101, 631)
+shape = SubResource("CircleShape2D_fi2oq")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="asteroid"]
+position = Vector2(2219, 116)
+shape = SubResource("CircleShape2D_q1q0s")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="asteroid"]
+position = Vector2(2920, 206)
+shape = SubResource("CircleShape2D_nxuy3")
+
+[node name="repsawn5" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="repsawn5"]
+position = Vector2(1516, 991)
+shape = SubResource("RectangleShape2D_d77of")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="repsawn5"]
+position = Vector2(1528, -26)
+shape = SubResource("RectangleShape2D_j3lvs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="repsawn5"]
+position = Vector2(-177, 464)
+shape = SubResource("RectangleShape2D_pi8cq")
+
+[node name="RespawnPoint" type="Marker2D" parent="."]
+position = Vector2(75, 561)
+gizmo_extents = 130.2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["belt_gravity"]]
+scale = Vector2(1, 0.86868924)
+
+[node name="Download" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(593.25, 557.4482)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_mgk50")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(550.25, 532.4482)
+polygon = PackedVector2Array(-170, -127, -149, -126, -149, -147, -109, -147, -109, -168, -50, -168, -49, -149, 74, -148, 74, -170, 156, -169, 156, -151, 258, -150, 259, -132, 277, -131, 278, -67, 261, -66, 261, -29, 240, -28, 239, -9, 218, -7, 217, 155, 197, 157, 197, 177, 177, 177, 177, 195, 74, 196, 74, 217, -47, 217, -47, 200, -87, 200, -87, 179, -108, 179, -108, 158, -129, 158, -129, 138, -148, 137, -148, 117, -169, 117, -168, 75, -185, 75, -188, -106, -171, -106)
+
+[node name="asteroid2" type="StaticBody2D" parent="." groups=["belt_gravity"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="asteroid2"]
+position = Vector2(1236.25, 272.2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_mgk50")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="asteroid2"]
+position = Vector2(1214.25, 254.20001)
+polygon = PackedVector2Array(-168, -154, -131, -153, -130, -175, -72, -176, -72, -154, 53, -154, 53, -174, 135, -174, 135, -156, 238, -153, 238, -139, 256, -138, 256, -76, 240, -75, 240, -36, 218, -35, 219, -18, 197, -16, 195, 151, 178, 150, 178, 172, 157, 172, 157, 188, 56, 192, 56, 207, -70, 208, -70, 192, -108, 192, -108, 173, -136, 173, -136, 154, -152, 154, -151, 133, -170, 133, -171, 111, -191, 110, -192, 71, -208, 70, -209, -113, -193, -114, -193, -133, -171, -135)
+
+[node name="asteroid3" type="StaticBody2D" parent="." groups=["belt_gravity"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="asteroid3"]
+position = Vector2(1325, 698)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_mgk50")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="asteroid3"]
+position = Vector2(1307, 704)
+polygon = PackedVector2Array(-57, -103, -28, -103, -28, -93, 34, -93, 34, -103, 75, -103, 75, -93, 126, -93, 126, -83, 136, -83, 136, -51, 127, -51, 127, -32, 116, -32, 116, -21, 105, -21, 104, 61, 95, 61, 95, 70, 86, 70, 86, 80, 34, 80, 34, 89, -28, 91, -28, 81, -48, 81, -48, 71, -58, 71, -58, 61, -69, 61, -69, 51, -78, 51, -78, 41, -88, 41, -88, 20, -98, 20, -99, -71, -88, -71, -88, -82, -79, -82, -79, -92, -58, -92, -58, -103)
+
+[node name="asteroid4" type="StaticBody2D" parent="." groups=["belt_gravity"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="asteroid4"]
+position = Vector2(1748, 275)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_mgk50")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="asteroid4"]
+position = Vector2(1735, 271)
+polygon = PackedVector2Array(-48, -72, -25, -72, -25, -66, 26, -66, 26, -74, 58, -74, 58, -65, 99, -65, 99, -58, 107, -58, 107, -33, 100, -33, 100, -17, 92, -17, 92, -8, 84, -8, 83, 56, 75, 56, 75, 64, 67, 64, 67, 72, 26, 74, 26, 81, -24, 80, -24, 74, -39, 74, -39, 66, -48, 66, -47, 57, -47, 56, -56, 56, -56, 50, -64, 50, -63, 41, -72, 41, -72, 25, -78, 25, -79, -49, -73, -49, -73, -58, -64, -57, -64, -65, -48, -65)
+
+[node name="asteroid5" type="StaticBody2D" parent="." groups=["belt_gravity"]]
+position = Vector2(-788, 365)
+
+[node name="Sprite2D" type="Sprite2D" parent="asteroid5"]
+position = Vector2(1748, 275)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_mgk50")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="asteroid5"]
+position = Vector2(1735, 271)
+polygon = PackedVector2Array(-48, -72, -25, -72, -25, -66, 26, -66, 26, -74, 58, -74, 58, -65, 99, -65, 99, -58, 107, -58, 107, -33, 100, -33, 100, -17, 92, -17, 92, -8, 84, -8, 83, 56, 75, 56, 75, 64, 67, 64, 67, 72, 26, 74, 26, 81, -24, 80, -24, 74, -39, 74, -39, 66, -48, 66, -47, 57, -47, 56, -56, 56, -56, 50, -64, 50, -63, 41, -72, 41, -72, 25, -78, 25, -79, -49, -73, -49, -73, -58, -64, -57, -64, -65, -48, -65)
+
+[node name="asteroid6" type="StaticBody2D" parent="." groups=["belt_gravity"]]
+position = Vector2(-153, 393)
+
+[node name="Sprite2D" type="Sprite2D" parent="asteroid6"]
+position = Vector2(1748, 275)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_mgk50")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="asteroid6"]
+position = Vector2(1735, 271)
+polygon = PackedVector2Array(-48, -72, -25, -72, -25, -66, 26, -66, 26, -74, 58, -74, 58, -65, 99, -65, 99, -58, 107, -58, 107, -33, 100, -33, 100, -17, 92, -17, 92, -8, 84, -8, 83, 56, 75, 56, 75, 64, 67, 64, 67, 72, 26, 74, 26, 81, -24, 80, -24, 74, -39, 74, -39, 66, -48, 66, -47, 57, -47, 56, -56, 56, -56, 50, -64, 50, -63, 41, -72, 41, -72, 25, -78, 25, -79, -49, -73, -49, -73, -58, -64, -57, -64, -65, -48, -65)
+
+[node name="asteroid7" type="StaticBody2D" parent="." groups=["belt_gravity"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="asteroid7"]
+position = Vector2(2109, 658)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_mgk50")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="asteroid7"]
+position = Vector2(2068, 651)
+polygon = PackedVector2Array(-137, -223, -70, -222, -72, -204, 80, -201, 80, -223, 175, -224, 176, -205, 301, -203, 301, -182, 321, -181, 323, -101, 303, -101, 303, -55, 280, -55, 280, -27, 254, -27, 253, 168, 229, 166, 228, 190, 204, 190, 204, 213, 81, 216, 80, 237, -67, 240, -68, 219, -116, 219, -117, 194, -139, 195, -141, 168, -168, 168, -168, 144, -189, 145, -190, 120, -218, 115, -218, 73, -237, 74, -237, -151, -215, -150, -216, -177, -191, -177, -191, -200, -143, -198, -143, -223)
+
+[node name="asteroid8" type="StaticBody2D" parent="." groups=["belt_gravity"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="asteroid8"]
+position = Vector2(2218, 120)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_mgk50")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="asteroid8"]
+position = Vector2(2212, 123)
+polygon = PackedVector2Array(-12, -12, -52, -54, -40, -54, -40, -61, -22, -61, -22, -55, 15, -55, 15, -60, 39, -60, 39, -55, 70, -54, 70, -50, 75, -49, 76, -31, 72, -31, 72, -20, 66, -20, 66, -13, 59, -13, 59, 35, 53, 35, 53, 42, 47, 43, 47, 48, 18, 48, 18, 53, -21, 53, -21, 49, -32, 49, -32, 44, -39, 44, -39, 38, -45, 37, -46, 31, -51, 31, -51, 25, -57, 25, -57, 13, -65, 13, -65, -42, -59, -42, -59, -49, -52, -49, -52, -54)
+
+[node name="asteroid9" type="StaticBody2D" parent="." groups=["belt_gravity"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="asteroid9"]
+position = Vector2(2941, 271)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_mgk50")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="asteroid9"]
+position = Vector2(2903, 255)
+polygon = PackedVector2Array(-202, -288, -114, -292, -114, -262, 87, -260, 89, -292, 217, -292, 217, -260, 383, -260, 384, -227, 414, -227, 413, -132, 383, -132, 381, -72, 350, -72, 350, -34, 321, -31, 318, 223, 288, 222, 284, 263, 257, 263, 256, 288, 91, 292, 90, 321, -107, 318, -107, 295, -169, 296, -169, 267, -201, 267, -201, 237, -238, 237, -238, 203, -266, 201, -267, 161, -299, 159, -299, 99, -334, 97, -335, -195, -308, -195, -307, -227, -269, -227, -269, -258, -209, -260)
+
+[node name="to jupiter" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to jupiter"]
+position = Vector2(3168, 876)
+shape = SubResource("RectangleShape2D_mgk50")
+
+[connection signal="body_entered" from="repsawn5" to="Character" method="_on_repsawn_5_body_entered"]
+[connection signal="body_entered" from="to jupiter" to="Character" method="_on_to_jupiter_body_entered"]

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dondypd263312"]
+
+[ext_resource type="Script" uid="uid://c2ynxncllhgrk" path="res://Jupiter/jupiter_to_saturn.gd" id="1_adb02"]
+[ext_resource type="Texture2D" uid="uid://ckyk2d28tph78" path="res://Mercury/pixil-layer-Layer 3 (1).png" id="2_6nj06"]
+[ext_resource type="FontFile" uid="uid://dftajxtvi4dt0" path="res://Main Scenes/Main Scene Files/Sprintura Demo.otf" id="3_4m8jj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37bt5"]
+bg_color = Color(0.056329295, 0.354225, 0.20002937, 0.44313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tile"]
+bg_color = Color(0.38229337, 0.6345698, 0.38573393, 1)
+
+[node name="JupiterToSaturn" type="Node2D"]
+script = ExtResource("1_adb02")
+
+[node name="PixilLayerLayer3(1)" type="Sprite2D" parent="."]
+position = Vector2(592.00006, 333)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_6nj06")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 74.0
+offset_right = 1225.0
+offset_bottom = 421.0
+theme_override_fonts/font = ExtResource("3_4m8jj")
+theme_override_font_sizes/font_size = 56
+text = "Congratilations Cadet, 
+you survived the gas 
+giant!
+
+Up Next, the ringed planet."
+
+[node name="saturn" type="Button" parent="."]
+offset_left = 388.0
+offset_top = 482.0
+offset_right = 756.0
+offset_bottom = 553.0
+theme_override_colors/font_color = Color(0.13265222, 0.22499695, 0.7896435, 1)
+theme_override_colors/font_hover_color = Color(0.109707154, 0.17195639, 0.46731907, 0.99215686)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_4m8jj")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_37bt5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8tile")
+text = "Ready!"
+
+[connection signal="pressed" from="saturn" to="." method="_on_saturn_pressed"]

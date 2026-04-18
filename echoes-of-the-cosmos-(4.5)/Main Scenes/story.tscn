@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs5r3mqps0532"]
+
+[ext_resource type="Script" uid="uid://bafm84tt1rskf" path="res://Main Scenes/story.gd" id="1_qokif"]
+[ext_resource type="Texture2D" uid="uid://dm41ms56ckg8o" path="res://Main Scenes/Main Scene Files/pixil-layer-Layer 4.png" id="2_4vnix"]
+[ext_resource type="FontFile" uid="uid://dftajxtvi4dt0" path="res://Main Scenes/Main Scene Files/Sprintura Demo.otf" id="3_74gwc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mtx1"]
+bg_color = Color(0.056329295, 0.354225, 0.20002937, 0.44313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qokif"]
+bg_color = Color(0.38039216, 0.63529414, 0.38431373, 1)
+
+[node name="Story" type="Node2D"]
+script = ExtResource("1_qokif")
+
+[node name="PixilLayerLayer4" type="Sprite2D" parent="."]
+position = Vector2(513, 310)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_4vnix")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 21.0
+offset_top = 20.0
+offset_right = 659.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("3_74gwc")
+theme_override_font_sizes/font_size = 106
+text = "Mission:"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 156.0
+offset_right = 856.0
+offset_bottom = 339.0
+theme_override_fonts/font = ExtResource("3_74gwc")
+theme_override_font_sizes/font_size = 24
+text = "You have been transported to the beginning of 
+solr system. Now you must go through the 
+core of each planet in the solar system before
+you return home. Your mission: survive at all 
+costs. Safe travels.
+"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 369.0
+offset_right = 550.0
+offset_bottom = 410.0
+theme_override_fonts/font = ExtResource("3_74gwc")
+theme_override_font_sizes/font_size = 36
+text = "Ready, cadet?"
+
+[node name="Ready" type="Button" parent="."]
+offset_left = 25.0
+offset_top = 463.0
+offset_right = 393.0
+offset_bottom = 534.0
+theme_override_colors/font_color = Color(0.13265222, 0.22499695, 0.7896435, 1)
+theme_override_colors/font_hover_color = Color(0.10980392, 0.17254902, 0.46666667, 0.99215686)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_74gwc")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_4mtx1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qokif")
+text = "Ready!"
+
+[connection signal="pressed" from="Ready" to="." method="_on_ready_pressed"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6rk7axvafpqx"]
+
+[ext_resource type="Script" uid="uid://dkbka0x2vhu2r" path="res://Uranus/uranus_to_neptune.gd" id="1_rgvxy"]
+[ext_resource type="Texture2D" uid="uid://ckyk2d28tph78" path="res://Mercury/pixil-layer-Layer 3 (1).png" id="2_gf6t2"]
+[ext_resource type="FontFile" uid="uid://dftajxtvi4dt0" path="res://Main Scenes/Main Scene Files/Sprintura Demo.otf" id="3_wgo3a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8f5wf"]
+bg_color = Color(0.056329295, 0.354225, 0.20002937, 0.44313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wft24"]
+bg_color = Color(0.38229337, 0.6345698, 0.38573393, 1)
+
+[node name="UranusToNeptune" type="Node2D"]
+script = ExtResource("1_rgvxy")
+
+[node name="PixilLayerLayer3(1)" type="Sprite2D" parent="."]
+position = Vector2(582, 347.00003)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_gf6t2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 37.0
+offset_top = 74.0
+offset_right = 1123.0
+offset_bottom = 421.0
+theme_override_fonts/font = ExtResource("3_wgo3a")
+theme_override_font_sizes/font_size = 60
+text = "Congratilations Cadet, 
+you survived Uranus!
+
+Up Next the blue giant."
+
+[node name="neptune" type="Button" parent="."]
+offset_left = 388.0
+offset_top = 482.0
+offset_right = 756.0
+offset_bottom = 553.0
+theme_override_colors/font_color = Color(0.13265222, 0.22499695, 0.7896435, 1)
+theme_override_colors/font_hover_color = Color(0.109707154, 0.17195639, 0.46731907, 0.99215686)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_wgo3a")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_8f5wf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wft24")
+text = "Ready!"
+
+[connection signal="pressed" from="neptune" to="." method="_on_neptune_pressed"]
