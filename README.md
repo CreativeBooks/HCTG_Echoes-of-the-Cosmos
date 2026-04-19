@@ -1,5 +1,5 @@
 # HCTG_Echoes-of-the-Cosmos
 
-For some reason GODOT inflated 2 hours on my time when I was at 13 hours, so my actual time is the Hackatime number minus 2. Also when I was at 25 hours it inflated it to 29 hr 27min, I don't know what's going on with Godot.
+For some reason GODOT inflated 2 hours on my time when I was at 13 hours, so my actual time is the Hackatime number minus 2. Also when I was at 25 hours it inflated it to 29 hr, I don't know what's going on with Godot.
 
 ![Hackatime Badge](https://hackatime.hackclub.com/api/v1/badge/U09ACQ21QC8/CreativeBooks/HCTG_Echoes-of-the-Cosmos)
