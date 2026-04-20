@@ -8,9 +8,9 @@ All of the art in this game was made by me expect for one exception and I used G
 
 I am trying to further explore game development so I used AI to help me with the GDscript for the falling asteroids and shooting disks. From that I created the falling ice shards since the logics are similar. Additionally, I used AI to figure out how to create zero gravity in the asteroid belt.
 
+Some images of the Neptune level.
 <img width="1024" height="639" alt="pixil-layer-Layer 10" src="https://github.com/user-attachments/assets/448cc796-c5f9-46e1-8edf-602f62047fd0" />
 <img width="1024" height="639" alt="pixil-layer-Layer 11" src="https://github.com/user-attachments/assets/bcceab5c-bee2-4f06-b56a-8f5a1a3112d7" />
 
 
 
-![Hackatime Badge](https://hackatime.hackclub.com/api/v1/badge/U09ACQ21QC8/CreativeBooks/HCTG_Echoes-of-the-Cosmos)
